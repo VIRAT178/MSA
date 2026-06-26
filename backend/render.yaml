@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: malwa-sports-academy-backend
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        scope: service
+      - key: JWT_SECRET
+        scope: service
+      - key: CLIENT_URL
+        value: https://your-frontend-domain.vercel.app
+      - key: SMTP_HOST
+        scope: service
+      - key: SMTP_PORT
+        value: 587
+      - key: SMTP_USER
+        scope: service
+      - key: SMTP_PASS
+        scope: service
+      - key: ADMIN_EMAIL
+        scope: service
