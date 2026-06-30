@@ -1,6 +1,7 @@
 import express from "express";
 import path from "path";
 import dotenv from "dotenv";
+import  cors from "cors";
 import fs from "fs";
 import crypto from "crypto";
 import { GoogleGenAI } from "@google/genai";
@@ -111,6 +112,11 @@ dotenv.config();
 
 const app = express();
 const PORT = 3000;
+app.use(cors({
+  origin: "https://malwasportsacademy.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 
 // Set up physical uploads directory
 const UPLOADS_DIR = path.join(process.cwd(), "uploads");
