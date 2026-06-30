@@ -112,6 +112,12 @@ dotenv.config();
 const app = express();
 const PORT = 3000;
 
+app.use(cors({
+  origin: "https://malwasportsacademy.vercel.app", 
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
 // Set up physical uploads directory
 const UPLOADS_DIR = path.join(process.cwd(), "uploads");
 if (!fs.existsSync(UPLOADS_DIR)) {
