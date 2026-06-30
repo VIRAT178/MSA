@@ -10,8 +10,11 @@ export default defineConfig(() => {
       alias: {
         '@': path.resolve(__dirname, '.'),
       },
-    },
-    server: {
+    },    publicDir: 'public',
+    build: {
+      assetsDir: 'assets',
+      assetsInlineLimit: 0,
+    },    server: {
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
       // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
       hmr: process.env.DISABLE_HMR !== 'true',

@@ -1,317 +1,474 @@
-import { Program, Athlete } from "./types";
+import { SportProgram, Coach, Athlete, Event, Achievement } from "./types";
+import academyBuilding from "./assets/images/academy_building.jpg";
+import athleteCricket from "./assets/images/athlete_cricket.png";
+import athleticsBg from "./assets/images/athletics_bg.png";
+import badmintonBg from "./assets/images/badminton_bg.png";
+import basketballBg from "./assets/images/basketball_bg.png";
+import carromBg from "./assets/images/carrom_bg.jpeg";
+import coach1 from "./assets/images/coach_1.png";
+import coach2 from "./assets/images/coach_2.png";
+import coach3 from "./assets/images/coach_3.png";
+import coach4 from "./assets/images/coach_4.png";
+import cricketBg from "./assets/images/cricket_bg.png";
+import footballBg from "./assets/images/football_bg.png";
+import gymBg from "./assets/images/gym_bg.png";
+import kabaddiBg from "./assets/images/kabaddi_bg.png";
+import shootingBg from "./assets/images/shooting_bg.png";
+import swimmingBg from "./assets/images/swimming_bg.jpg";
+import tableTennisBg from "./assets/images/table_tennis_bg.jpeg";
+import volleyballBg from "./assets/images/volleyball_bg.png";
+import facilityGym from "./assets/images/facility_gym.png";
+import facilityShooting from "./assets/images/facility_shooting.jpg";
+import facilitySwimming from "./assets/images/swimming_bg.jpg";
 
-// @ts-ignore
-import cricketImg from "./assets/images/cricket_program.png";
-// @ts-ignore
-import footballImg from "./assets/images/football_program.png";
-// @ts-ignore
-import basketballImg from "./assets/images/basketball_program.jpeg";
-// @ts-ignore
-import athleticsImg from "./assets/images/athletics_program.png";
-// @ts-ignore
-import volleyballImg from "./assets/images/volleyball_program.jpeg";
-// @ts-ignore
-import kabaddiImg from "./assets/images/kabaddi_program.png";
-// @ts-ignore
-import badmintonImg from "./assets/images/badminton_program.jpeg";
-// @ts-ignore
-import tableTennisImg from "./assets/images/table_tennis_program.jpeg";
-// @ts-ignore
-import carromImg from "./assets/images/carrom_program.jpeg";
-// @ts-ignore
-import swimmingImg from "./assets/images/swimming_program.jpg";
-// @ts-ignore
-import shootingImg from "./assets/images/shooting_program.png";
-// @ts-ignore
-import gymImg from "./assets/images/gym_program.png";
-
-// @ts-ignore
-import athletePrinceImg from "./assets/images/athlete_prince.png";
-// @ts-ignore
-import athleteRiyaImg from "./assets/images/athlete_riya.png";
-// @ts-ignore
-import athleteAmanImg from "./assets/images/athlete_aman.png";
-// @ts-ignore
-import athleteMahiImg from "./assets/images/athlete_mahi.png";
-
-export const PROGRAMS: Program[] = [
+export const SPORTS_PROGRAMS: SportProgram[] = [
   {
-    id: "prog-cricket",
-    name: "Elite Cricket",
-    iconName: "sports_cricket",
-    image: cricketImg,
-    description: "State-of-the-art fast bowling analysis, spin biomechanics, and technical batting mastery under stadium floodlights.",
-    coaches: ["Coach Stayandra Singh (Bowling Specialist)", "Coach Prince Pathak (Batting Tactician)"],
-    facilities: ["Indoor Pitch with High-Speed 500FPS Cameras", "Dynamic Bowling Simulators", "Grass Turf Pitches"],
-    highlights: ["Speed Gun Telemetry", "Grip Tension Sensor Gloves", "Match Play Under Stadium Floodlights"],
-    curriculum: {
-      week1: "Stance analysis and spinal loading biomechanics during delivery stride.",
-      week2: "Kinetic chain synchronization and front foot block stability workouts.",
-      week3: "Tactical match simulations, crease management, and crease manipulation.",
-      week4: "High-intensity endurance intervals and pressure threshold batting sets."
-    }
+    id: "msa-campus",
+    name: "MSA Campus",
+    tagline: "Welcome to the Malwa Sports Academy Campus",
+    bgImage: academyBuilding,
+    bgPosition: "center 20%",
+    athleteImage: "🏢",
+    color: "from-slate-700 to-zinc-950",
+    description: "Experience the iconic Malwa Sports Academy campus on Sanwer Road, featuring world-class training arenas, athlete residences, and championship-ready facilities.",
+    ageGroups: ["Campus Tours", "Junior Athletes", "Elite Preparation"],
+    methodology: [
+      "Premium training grounds built for national-level sports development.",
+      "Integrated athlete support facilities including physiotherapy, nutrition, and recovery.",
+      "Campus environment designed for focus, resilience, and championship culture."
+    ],
+    schedule: "Open year-round for athlete training, trials, and youth programs.",
+    coaches: ["MSA Elite Training Staff"],
+    facilities: ["Indoor/Outdoor sports arenas", "Professional gym and pool", "Performance recovery center"]
   },
   {
-    id: "prog-football",
-    name: "Pro Football",
-    iconName: "sports_soccer",
-    image: footballImg,
-    description: "High-intensity speed tactical football training, spatial awareness coaching, and athletic conditioning systems.",
-    coaches: ["Coach Stayandra Singh (Pro License Coach)", "Coach Prince Pathak (Fitness Specialist)"],
-    facilities: ["FIFA-Certified Synthetic Pitch", "Reaction Time Gate System", "Oxygen Deprivation Chamber"],
-    highlights: ["GPS Player Tracking Vests", "Reaction Light Agility Sets", "Cardiovascular Lactate Analysis"],
-    curriculum: {
-      week1: "Anaerobic threshold sprint metrics and acceleration gate benchmarks.",
-      week2: "Spatial visual awareness, transition play patterns, and dynamic passing.",
-      week3: "High-pressing physical defensive shapes and counter-attacking drills.",
-      week4: "Full-game simulation with live GPS telemetry tracking and load monitoring."
-    }
+    id: "cricket",
+    name: "Cricket",
+    tagline: "Unleash Elite Leather & Willow Excellence",
+    bgImage: cricketBg,
+    bgPosition: "center 8%",
+    athleteImage: "🏏",
+    color: "from-rose-700 to-red-950",
+    description: "Our premium Cricket Academy offers a professional pathway from grassroots to national levels. We combine cutting-edge technology like high-speed camera analysis with authentic match scenarios on manicured turf wickets.",
+    ageGroups: ["Under 12 (Junior Development)", "Under 16 (Youth Academy)", "Elite / High Performance (Open)"],
+    methodology: [
+      "Vicon 3D Motion Analysis for biomechanical correction.",
+      "Professional bowling machine sessions with varying speeds & spin simulations.",
+      "Tactical mental conditioning and match-scenario pressure drills.",
+      "One-on-one video analysis sessions with certified BCCI-level coaches."
+    ],
+    schedule: "Mon, Wed, Fri: 4:00 PM - 7:00 PM | Sat Matchplay: 8:00 AM - 12:30 PM",
+    coaches: ["Coach Vikram Dev (BCCI Level 3 Certified)", "Coach Amitesh Sharma (Ranji Trophy Veteran)"],
+    facilities: ["Indoor Bowling Lanes", "Pristine Natural Turf Wickets", "Bolas Bowling Simulator", "Speed Radar Traps"]
   },
   {
-    id: "prog-basketball",
-    name: "Basketball Core",
-    iconName: "sports_basketball",
-    image: basketballImg,
-    description: "Vertical jump maximization, advanced court positioning strategy, and explosive physical transition play.",
-    coaches: ["Coach Prince Pathak (Former National Coach)", "Coach Davinder Singh (Strength Coord.)"],
-    facilities: ["Premium FIBA Wooden Indoor Court", "Force-Plate Jump Sensors", "Heavy Resistance Bands"],
-    highlights: ["Force-Plate Biomechanical Jump Diagnostics", "Shot release angle mapping", "Dynamic visual response trackers"],
-    curriculum: {
-      week1: "Reactive strength index assessment and plyometric jump mechanics.",
-      week2: "High-tempo fast break coordination and screen transition mechanics.",
-      week3: "Defensive closeouts, physical containment, and physical blockout drills.",
-      week4: "High-intensity crunch-time shot execution under elevated heart rate."
-    }
+    id: "football",
+    name: "Football",
+    tagline: "Dynamic Fluidity & Tactical Mastery",
+    bgImage: footballBg,
+    bgPosition: "center 5%",
+    athleteImage: "⚽",
+    color: "from-red-600 to-black",
+    description: "The Football Development Program focuses on speed, technical precision, positional intelligence, and teamwork. Athletes train on our FIFA-certified synthetic turf field.",
+    ageGroups: ["Under 11 (Foundation)", "Under 15 (Competitive Academy)", "Under 19 & Elite (Performance Team)"],
+    methodology: [
+      "Spanish-style tiki-taka technical possession drills.",
+      "GPS tracker vests to measure athlete sprint speed, stamina, and positioning.",
+      "Strength and agility conditioning specifically for modern football.",
+      "Tactical video debriefs of weekly inter-academy match fixtures."
+    ],
+    schedule: "Tue, Thu, Sat: 4:30 PM - 7:30 PM | Sun Tactical Masterclass: 9:00 AM",
+    coaches: ["Coach Rohan Khare (AFC 'A' Licensed)", "Coach Diego Silva (International Youth Consultant)"],
+    facilities: ["FIFA-Standard Synthetic Pitch", "Elite Agility Training Hub", "GPS Athlete Tracking Vest System"]
   },
   {
-    id: "prog-athletics",
-    name: "Athletics Hub",
-    iconName: "sprint",
-    image: athleticsImg,
-    description: "Olympic-grade sprinting block analytics, explosive power output, and running stride length optimization.",
-    coaches: ["Coach Prince Pathak", "Coach Styandra Singh (Sprint Coach)"],
-    facilities: ["Indoor Polyurethane Track", "Starting Block Load Cells", "High-Velocity Resistance Fans"],
-    highlights: ["Starting Block Reaction Load Telemetry", "Wind-tunnel resistance simulations", "Continuous blood-oxygen monitoring"],
-    curriculum: {
-      week1: "Sprinting block departure angle and dynamic power generation metrics.",
-      week2: "Max velocity stride frequency optimization and posture analysis.",
-      week3: "Lactate clearance tempo drills and interval breathing control.",
-      week4: "Simulated tournament heats with electronic timing system feedback."
-    }
+    id: "basketball",
+    name: "Basketball",
+    tagline: "Rise Above: Precision, Speed, Authority",
+    bgImage: basketballBg,
+    bgPosition: "center 5%",
+    athleteImage: "🏀",
+    color: "from-amber-600 to-red-950",
+    description: "At MSA, our basketballers develop elite dribbling mechanics, perimeter shooting consistency, explosive vertical jumps, and sophisticated defensive schemes.",
+    ageGroups: ["Under 13 (Rising Stars)", "Under 17 (Championship Squad)", "Elite Varsity Program"],
+    methodology: [
+      "High-repetition shooting machine sessions (Dr. Dish).",
+      "Slam-dunk vertical leap plyometric conditioning.",
+      "Full-court tactical press, zone transitions, and pick-and-roll defense.",
+      "Agility ladders and reaction-timer light drills."
+    ],
+    schedule: "Mon, Wed, Fri: 5:00 PM - 8:00 PM | Sat Drills & Scrimmages: 4:00 PM",
+    coaches: ["Coach Satnam Gill (FIBA Certified)", "Coach Neha Iyer (Former National Women's Captain)"],
+    facilities: ["Indoor Maplewood FIBA Court", "Dr. Dish Shooting Machine", "Reaction-Light Agility Boards"]
   },
   {
-    id: "prog-volleyball",
-    name: "Pro Volleyball",
-    iconName: "sports_volleyball",
-    image: volleyballImg,
-    description: "Rotator cuff durability, vertical attack setups, and lateral court blocking patterns under professional sensors.",
-    coaches: ["Coach Jasdev", "Coach Priya (Setter Specialist)"],
-    facilities: ["Canada Maple Indoor Court", "High-Velocity Spiking Rig", "Volleyball Launch Cannons"],
-    highlights: ["Rotator Cuff Biomechanical Stabilization", "Attack velocity tracking sensors", "Dynamic jump fatigue maps"],
-    curriculum: {
-      week1: "Rotational scapular tracking and dynamic shoulder health stabilization.",
-      week2: "Transition blocking footwork mechanics and landing impact balance.",
-      week3: "Serve trajectory velocities and targeted serve placement patterns.",
-      week4: "Tactical defensive block-and-cover setups under simulated scrimmage."
-    }
+    id: "volleyball",
+    name: "Volleyball",
+    tagline: "Power Spikes & Unshakable Court Defense",
+    bgImage: volleyballBg,
+    bgPosition: "center 5%",
+    athleteImage: "🏐",
+    color: "from-red-800 to-stone-900",
+    description: "Train with champions to master high-velocity jumps, aggressive serves, impenetrable blocks, and fluid team transition systems.",
+    ageGroups: ["Under 14 (Juniors)", "Under 18 (Seniors)", "Elite Championship Prep"],
+    methodology: [
+      "Spike force and vertical reach measurement tracking.",
+      "Continuous rally stamina simulation.",
+      "High-intensity visual-tracking reactive drills.",
+      "Server precision analysis."
+    ],
+    schedule: "Tue, Thu, Sat: 5:00 PM - 7:30 PM",
+    coaches: ["Coach Suresh Rawat (Former Indian Team Player)", "Coach Tina Sen (National medalist)"],
+    facilities: ["Premium Acrylic Outdoor Courts", "High-Reach Volleyball Drills Net", "Speed Spike Launchers"]
   },
   {
-    id: "prog-kabaddi",
-    name: "Tactical Kabaddi",
-    iconName: "sports_kabaddi",
-    image: kabaddiImg,
-    description: "Develop supreme lung capacity, explosive leg power, and high-precision tactical chain defense maneuvers.",
-    coaches: ["Coach Prince Pathak", "Coach Styandra Singh (Strength & Power)"],
-    facilities: ["Pro-Standard Synthetic Mat Arena", "Reaction Agility Laser Gates", "Grip Strength Suspension Rigs"],
-    highlights: ["Raid Escape Acceleration Sensors", "Thigh Clutch Impact Pads", "Breath Recovery Telemetry"],
-    curriculum: {
-      week1: "Raid footwork pacing, lateral ankle clutches, and escape acceleration.",
-      week2: "Chain alignment mechanics, team tackle timing, and core bracing.",
-      week3: "High-pressure raider simulation drills and reflex dodging angles.",
-      week4: "Full simulated Pro-Kabaddi mats trial tournament series."
-    }
+    id: "badminton",
+    name: "Badminton",
+    tagline: "Explosive Reflexes & Precise Court Craft",
+    bgImage: badmintonBg,
+    bgPosition: "center 5%",
+    athleteImage: "🏸",
+    color: "from-emerald-700 to-red-950",
+    description: "Refine your footwork, deceptive wrist-work, smash velocities, and lightning-fast net play on our international-spec synthetic courts.",
+    ageGroups: ["Under 12 (Foundational)", "Under 16 (Pro-Junior)", "Elite Single/Double Mastery"],
+    methodology: [
+      "Multi-shuttle continuous feeding drills.",
+      "Reflex and dynamic lunge response tracking.",
+      "Stroke-play analysis (deceptions, drops, cross-court smashes).",
+      "Stamina intervals mimicking high-elevation lunges."
+    ],
+    schedule: "Mon, Wed, Fri: 3:30 PM - 6:30 PM | Sat Advanced Drills: 9:00 AM",
+    coaches: ["Coach Prakash Nair (Former National Coach)", "Coach Anjali Jha (BWF Certified Level 2)"],
+    facilities: ["6 International Yonex-Approved Synthetic Courts", "Automatic Shuttle Feeders", "Reflex Lighting Pads"]
   },
   {
-    id: "prog-badminton",
-    name: "Elite Badminton",
-    iconName: "sports_badminton",
-    image: badmintonImg,
-    description: "Lightning court transitions, hyper-reflex hexagonal agility grids, and explosive smash terminal velocities.",
-    coaches: ["Coach Prince Pathak ", "Coach Sachin Yadav (Doubles Strategist)"],
-    facilities: ["Anti-slip Mat Courts", "Reflex Light Wall Modules", "Smash Speed Sensor Rackets"],
-    highlights: ["Hexagonal Agility Footwork Telemetry", "Terminal Smash Release Speeds", "Lateral Deceleration Safety Checks"],
-    curriculum: {
-      week1: "Hexagonal court coverage patterns, lunge balance, and stance recovery.",
-      week2: "Terminal wrist snap swing accelerations and smash impact velocities.",
-      week3: "Deceptive backcourt drops, net play spin, and defensive recovery.",
-      week4: "High-aerobic lateral speed matches under micro-second reaction timers."
-    }
+    id: "tabletennis",
+    name: "Table Tennis",
+    tagline: "Sub-Second Decisions & Complex Spin Vectors",
+    bgImage: tableTennisBg,
+    bgPosition: "center 10%",
+    athleteImage: "🏓",
+    color: "from-teal-700 to-black",
+    description: "Harness spin, velocity, and sharp angles on MSA's premium ITTF-certified tables. Our academy focuses on tactical variations and mental presence.",
+    ageGroups: ["Under 12 (Sub-Juniors)", "Under 16 (Youth Squad)", "Elite National Pathway"],
+    methodology: [
+      "Robotic multi-spin feeding simulators.",
+      "High-speed wrist rotation biomechanical tracking.",
+      "Paddle angle adjustment and micro-adjustment drills.",
+      "Psychology preparation for rapid score-turnarounds."
+    ],
+    schedule: "Tue, Thu, Sat: 4:00 PM - 7:00 PM",
+    coaches: ["Coach Debashish Sen (ITTF Level 3)", "Coach Priyanka Das (National Champion)"],
+    facilities: ["10 ITTF-Approved Tables", "Butterfly Amicus Prime Robot", "High-Resolution Spin Camera"]
   },
   {
-    id: "prog-table-tennis",
-    name: "Table Tennis Pro",
-    iconName: "sports_table_tennis",
-    image: tableTennisImg,
-    description: "Neural-reflex coordination, high-tempo visual loop tracking, and micro-footwork table positioning mastery.",
-    coaches: ["Coach Prince Pathak", "Coach Meenakshi Iyer (Spin Technique Specialist)"],
-    facilities: ["ITTF Premium 25mm Arena", "Multi-Ball Robotic Pitchers", "Spin Analytics Visual Trackers"],
-    highlights: ["Neural-Reflex Response Clocking", "Ball Rotations-Per-Second Vectoring", "Close-Table Micro-Footwork Grids"],
-    curriculum: {
-      week1: "Hand-eye visual speed coordination and multi-ball rhythm tracking.",
-      week2: "Topspin/backspin vector adjustment, wrist control, and loop angles.",
-      week3: "Close-table counter hitting, blocking defense, and court side-stepping.",
-      week4: "Erratic high-speed robotic feeds and pressure game score sets."
-    }
+    id: "athletics",
+    name: "Athletics",
+    tagline: "Fractions of Seconds. Pinnacles of Human Performance.",
+    bgImage: athleticsBg,
+    bgPosition: "center 10%",
+    athleteImage: "🏃",
+    color: "from-amber-700 to-red-950",
+    description: "Sprint, jump, and throw with absolute efficiency. MSA Athletics program covers sprints (100m, 200m, 400m), middle-distance, long jump, triple jump, and throwing events.",
+    ageGroups: ["Under 14 (Sprints & Jumps)", "Under 18 (Elite Track & Field)", "National Aspirants Pool"],
+    methodology: [
+      "Sprint stride frequency and length analysis via motion tags.",
+      "Plyometric explosion and starting block response timing.",
+      "Lactate threshold endurance mapping.",
+      "Aerodynamics and throwing posture biomechanics."
+    ],
+    schedule: "Mon, Tue, Thu, Fri: 5:30 AM - 8:00 AM & 4:30 PM - 6:30 PM",
+    coaches: ["Coach Jagtar Singh (Former Olympic Athletics Coach)", "Coach Meera Patil (NIS Diploma in Athletics)"],
+    facilities: ["8-Lane Synthetic Track", "Laser-Targeted Long Jump Pit", "Automatic Electronic Finish Timers"]
   },
   {
-    id: "prog-carrom",
+    id: "kabaddi",
+    name: "Kabaddi",
+    tagline: "Strength, Strategy, Unyielding Grip",
+    bgImage: kabaddiBg,
+    bgPosition: "center 10%",
+    athleteImage: "🤼",
+    color: "from-orange-700 to-stone-900",
+    description: "Learn elite raiding footwork, defensive combinations (ankle holds, thigh holds), and breathing holding techniques. Prepares athletes for Pro Kabaddi League standard.",
+    ageGroups: ["Under 15 (Junior Warriors)", "Under 19 (State Prep)", "MSA Elite Kabaddi Club"],
+    methodology: [
+      "Raider footwork speed and touch response training.",
+      "Multi-defender tackling resistance drills.",
+      "Lung and abdominal capacity hold exercises.",
+      "Tactical visual coordination for defensive chains."
+    ],
+    schedule: "Tue, Thu, Sat: 4:30 PM - 7:30 PM",
+    coaches: ["Coach Harpreet Singh (Pro Kabaddi Lead Scout)", "Coach Vijay Yadav (National Medalist)"],
+    facilities: ["Indoor International Mat Arena", "High-Impact Crash Pads", "Isometric Strength Stations"]
+  },
+  {
+    id: "swimming",
+    name: "Swimming",
+    tagline: "Master the Water. Command Every Stroke.",
+    bgImage: swimmingBg,
+    bgPosition: "center 50%",
+    athleteImage: "🏊",
+    color: "from-blue-700 to-red-950",
+    description: "Our world-class Olympic-size pool trains competitive swimmers in butterfly, backstroke, breaststroke, and freestyle, combined with underwater video analysis.",
+    ageGroups: ["Under 10 (Stroke Correct)", "Under 15 (Junior Competitive)", "Elite National Squad"],
+    methodology: [
+      "Underwater camera stroke efficiency feedback.",
+      "Hydrodynamics and flip-turn velocity drills.",
+      "Aerobic and anaerobic threshold training.",
+      "Resistance parachute swimming and drag training."
+    ],
+    schedule: "Mon to Sat: 6:00 AM - 8:30 AM & 5:00 PM - 7:30 PM",
+    coaches: ["Coach Sandeep Gupta (NIS, ASCA Level 4)", "Coach Sophia Ray (International Competitor)"],
+    facilities: ["Olympic-size 10-Lane Pool", "Underwater Video Recording Rig", "Swim-Parachutes & Resistance Bungees"]
+  },
+  {
+    id: "rifleshooting",
+    name: "Rifle Shooting",
+    tagline: "Inhale. Focus. Execute. Complete Stillness.",
+    bgImage: shootingBg,
+    bgPosition: "center 40%",
+    athleteImage: "🎯",
+    color: "from-zinc-700 to-red-950",
+    description: "Experience absolute precision training in 10m Air Rifle and Air Pistol. Our state-of-the-art shooting range uses electronic scoring targets.",
+    ageGroups: ["Under 14 (Foundational Focus)", "Under 18 (Pre-National)", "Elite Championship shooters"],
+    methodology: [
+      "SCATT Shooter Training System (optical sensor laser feedback).",
+      "Heart-rate and pulse control breathing drills.",
+      "Body posture symmetry and muscle-memory locking.",
+      "Match-stress simulators and psychological calming."
+    ],
+    schedule: "Mon, Wed, Fri: 3:00 PM - 6:00 PM | Sat Target Scrimmage: 10:00 AM",
+    coaches: ["Coach Rajendra Rathore (Former National Shooter)", "Coach Tanvi Shah (ISSF Level 'B' Coach)"],
+    facilities: ["10m Air Rifle Electronic Shooting Range", "Sius Ascor Electronic Targets", "SCATT Biomechanical Sensors"]
+  },
+  {
+    id: "gym",
+    name: "Gym & Fitness",
+    tagline: "The Crucible of Strength & Athletic Power",
+    bgImage: gymBg,
+    bgPosition: "center 50%",
+    athleteImage: "🏋️",
+    color: "from-red-700 to-stone-900",
+    description: "The engine room of all MSA athletes. We focus on sport-specific conditioning, explosive power, muscular endurance, and bulletproof injury rehabilitation.",
+    ageGroups: ["Youth Strength (Age 12+)", "Athlete High-Performance Tuning", "Adult Functional Fitness"],
+    methodology: [
+      "Sport-specific strength programming (e.g. bowler shoulders, sprinter calves).",
+      "Explosive Olympic weightlifting coaching.",
+      "Functional fitness, core stability, and agility drills.",
+      "Physiotherapy and post-session soft tissue recovery."
+    ],
+    schedule: "Mon to Sat: 5:00 AM - 10:00 AM & 4:00 PM - 9:00 PM",
+    coaches: ["Coach Hardik Patel (CSCS, Sports Physio)", "Coach Kavita Roy (Sports Nutritionist & Trainer)"],
+    facilities: ["Elite Olympic Platforms", "Functional Cross-Fit Rig", "Physiotherapy & Rehab Lounge", "Body Composition Analyzer"]
+  },
+  {
+    id: "indoorgames",
     name: "Indoor Games (Carrom)",
-    iconName: "sports_esports",
-    image: carromImg,
-    description: "Hone micro-angle calculations, finger-striking metrics, and extreme cognitive calmness in high-stakes indoor tournaments.",
-    coaches: ["Coach Prince Pathak ", "Coach Meera"],
-    facilities: ["Premium Championship Boards", "Zero-Shadow Diffused Studio Lights", "Calibrated Weight Strikers"],
-    highlights: ["Strike rebound trajectory maps", "Calibrated fingertip strike sensor trials", "Cognitive focal testing labs"],
-    curriculum: {
-      week1: "Striker finger releasing alignment and rebounding physics calibration.",
-      week2: "Coin state reading strategies and defensive coin blocking setups.",
-      week3: "Tournament style singles pressure matches and focus exercises.",
-      week4: "Finger fatigue management and micro-muscle recovery workouts."
-    }
-  },
-  {
-    id: "prog-swimming",
-    name: "Olympic Swimming",
-    iconName: "pool",
-    image: swimmingImg,
-    description: "Hydrodynamic drag reduction, peak oxygen utilization, and explosive starts under underwater high-speed camera sensors.",
-    coaches: ["Coach Prince Pathak ", "Coach Styandra Singh"],
-    facilities: ["Olympic-Sized 10-lane 50m Pool", "Underwater Stroke Cam Systems", "Sensory Propulsive Force Paddles"],
-    highlights: ["Live Hydrodynamic Drag Mapping", "Under-water kick rate sensors", "Lung threshold VO2 expanders"],
-    curriculum: {
-      week1: "Hydrodynamic surface area reduction and hand entry angle alignments.",
-      week2: "Interval threshold sets for peak cardiac recovery.",
-      week3: "Starting block reaction takeoff mechanics and dolphin kick sync.",
-      week4: "Full race pacing with underwater camera feedback."
-    }
-  },
-  {
-    id: "prog-shooting",
-    name: "Precision Rifle Shooting",
-    iconName: "target",
-    image: shootingImg,
-    description: "Elite trigger pull consistency, respiratory rhythm sync, and supreme mental calm under micro-scale target metrics.",
-    coaches: ["Coach Vikramjeet", "Coach Prince Pathak "],
-    facilities: ["10m Air Rifle Electronic Arena", "Sius Ascor Tech acoustic sensor targets", "Biometric chest-wall stress suits"],
-    highlights: ["Tremor index monitoring", "Skeletal alignment balance boards", "Trigger creep tracking scales"],
-    curriculum: {
-      week1: "Breathing sync patterns and trigger release timing matches.",
-      week2: "Skeletal weight distribution analysis and muscle tremor offsets.",
-      week3: "Trigger fingertip micro-gram pressure logging sessions.",
-      week4: "Championship style simulated 10m target series under timer constraints."
-    }
-  },
-  {
-    id: "prog-gym",
-    name: "Strength & Conditioning Gym",
-    iconName: "fitness_center",
-    image: gymImg,
-    description: "Build explosive kinetic transfer, maximum structural durability, and customized athletic power foundations.",
-    coaches: ["Coach Prince Pathak ", "Coach Sukhdev"],
-    facilities: ["Olympic Lifting Zone", "Indoor Turf Sled Push Lane", "Keiser Pneumatic Rig"],
-    highlights: ["Barbell velocity speed gates", "Joint deceleration safety telemetry", "Metabolic reserves threshold mapping"],
-    curriculum: {
-      week1: "Olympic power lift techniques and barbell trajectory path safety.",
-      week2: "Joint support stability and loaded cartilage eccentric strengthening.",
-      week3: "High-intensity sled push and late-game fatigue simulations.",
-      week4: "Fitathlon challenge trials and power outputs assessment."
-    }
+    tagline: "Tactical Recreation",
+    bgImage: carromBg,
+    bgPosition: "center 15%",
+    athleteImage: "🔘",
+    color: "from-red-600 to-zinc-900",
+    description: "Hone micro-angle calculations, finger-striking metrics, and extreme cognitive calmness in high-stakes indoor tournaments. Malwa Sports Academy's premium Indoor Arena supports state-of-the-art Carrom boards and professional board game equipment under accredited national guides.",
+    ageGroups: ["Under 12 (Junior Development)", "Under 16 (Youth Cup Prep)", "Elite / High Performance (Open)"],
+    methodology: [
+      "Precision angle striker calculation training.",
+      "Fine-motor fingertip muscle reflex conditioning.",
+      "Board friction assessment & powder application mechanics.",
+      "Simulated high-pressure tournament match-play under stress."
+    ],
+    schedule: "Mon to Sat: 4:00 PM - 7:00 PM | Sun Tactical Tourney: 10:00 AM",
+    coaches: ["Coach Satnam Gill (FIBA & Indoor Games Advisor)", "Coach Neha Iyer (Former National Champion)"],
+    facilities: ["International-Standard Synco Carrom Boards", "Advanced Micro-Angle Laser Cameras", "High-Precision Striker Weight Scales", "Ergonomic Performance Chairs"]
   }
 ];
 
-export const ATHLETES: Athlete[] = [
+export const COACHES: Coach[] = [
   {
-    id: "ath-1",
-    name: "Prince Singh",
-    role: "Opening Batsman",
-    category: "Cricket",
-    badge: "STATE MVP",
-    image: athletePrinceImg,
-    bio: "Vikram represents the modern aggressive batter archetype, boasting extreme strike-rotation capabilities and backfoot force transfer.",
-    achievements: [
-      "Highest run-scorer in the State League (642 runs in 10 matches)",
-      "Voted State High-Performance Tournament MVP 2025",
-      "Selected for national academy camp selection"
-    ],
-    metrics: {
-      speed: 84,
-      stamina: 89,
-      power: 92,
-      discipline: 95,
-      tactical: 90
-    }
+    id: "1",
+    name: "Coach Vikram Dev",
+    role: "Head Cricket Coach",
+    specialty: "Batting Biomechanics & Spin Strategy",
+    experience: "8+ Years",
+    bio: "Former domestic veteran who has coached state-level teams and holds BCCI Level 3 accreditation.",
+    image: coach2,
+    achievements: ["Coached 15+ athletes who played under-19 national level.", "Indore Best Sports Mentor Award 2024."]
   },
   {
-    id: "ath-2",
-    name: "Riya Sharma",
-    role: "Midfielder",
-    category: "Football",
-    badge: "PRO DRAFT",
-    image: athleteRiyaImg,
-    bio: "Riya controls the midfield engine with a pristine 91% passing accuracy and supreme aerobic threshold, running averages of 12.4km per match.",
-    achievements: [
-      "Malwa Football Federation Elite Playmaker Award",
-      "Pro League Draft First Round Pick #3",
-      "Represented India U-20 National team in Asia Cup"
-    ],
-    metrics: {
-      speed: 91,
-      stamina: 96,
-      power: 78,
-      discipline: 94,
-      tactical: 95
-    }
+    id: "2",
+    name: "Coach Rohani Khare",
+    role: "Head Football Coach",
+    specialty: "High-Press Tactics & Tactical Playmaking",
+    experience: "2+ Years",
+    bio: "AFC 'A' licensed tactician who spent 4 years studying European academy methods in Madrid.",
+    image: coach3,
+    achievements: ["Led Malwa FC to the State Youth League Championship 2025.", "Specialist in GPS-based athlete telemetry."]
   },
   {
-    id: "ath-3",
-    name: "Aman Kumar",
-    role: "Point Guard",
-    category: "Basketball",
-    badge: "ALL-STAR",
-    image: athleteAmanImg,
-    bio: "Aman's court vision is elite, complemented by an explosive 38-inch vertical and a signature lightning crossover that scrambles defenses.",
-    achievements: [
-      "National High School All-Star starting PG",
-      "Most assists record holder (average 11.2 per game)",
-      "Tournament gold medalist with North Malwa Elite"
-    ],
-    metrics: {
-      speed: 95,
-      stamina: 87,
-      power: 82,
-      discipline: 88,
-      tactical: 94
-    }
+    id: "3",
+    name: "Coach Satnam Gill",
+    role: "Senior Basketball Coach",
+    specialty: "Vertical Leap Programming & Perimeter Offense",
+    experience: "5+ Years",
+    bio: "FIBA certified elite coach with extensive experience playing in national leagues.",
+    image: coach4,
+    achievements: ["Trained 4 international athletes representing national squads.", "Indore Inter-School MVP Selector."]
   },
   {
-    id: "ath-4",
-    name: "Mahi kaur",
-    role: "100m Sprinter",
-    category: "Athletics",
-    badge: "RECORD HOLDER",
-    image: athleteMahiImg,
-    bio: "Sanya holds the absolute regional 100m sprint record with an astronomical 11.18 seconds, driven by high acceleration force off the starting blocks.",
-    achievements: [
-      "Regional 100m Champion (Record time of 11.18s)",
-      "Gold medal in National Junior Federation Athletics",
-      "Fastest block reaction speed in academy history (0.115s)"
-    ],
-    metrics: {
-      speed: 99,
-      stamina: 81,
-      power: 95,
-      discipline: 91,
-      tactical: 80
-    }
+    id: "4",
+    name: "Coach Sakshi Mehra",
+    role: "Elite Rifle Shooting Director",
+    specialty: "Mental Focus & Olympic 10m Standing Grip",
+    experience: "2+ Years",
+    bio: "Former national gold medalist and national team selector, expert in optical-laser training technology.",
+    image: coach1,
+    achievements: ["Coached 2 shooters currently in the national Olympic pool.", "Indore Lifetime Achievement in Sports 2023."]
+  }
+];
+
+export const FEATURED_ATHLETES: Athlete[] = [
+  {
+    id: "1",
+    name: "Arjun Malviya",
+    sport: "Cricket",
+    achievement: "Selected for MP Ranji Trophy Team & India U-19 Challengers Pool",
+    image: athleteCricket,
+    level: "Elite Athlete"
+  },
+  {
+    id: "2",
+    name: "Kriti Chandak",
+    sport: "Rifle Shooting",
+    achievement: "National Gold Medalist (10m Air Rifle) & Ranked No. 3 in India Juniors",
+    image: shootingBg,
+    level: "Youth International"
+  },
+  {
+    id: "3",
+    name: "Rishi Rathore",
+    sport: "Football",
+    achievement: "Selected for I-League Youth Division & MSA League Top Scorer",
+    image: footballBg,
+    level: "State Representative"
+  },
+  {
+    id: "4",
+    name: "Simran Gill",
+    sport: "Basketball",
+    achievement: "Captain of MP State Girls Team & School National MVP",
+    image: basketballBg,
+    level: "National Youth Medalist"
+  }
+];
+
+export const UPCOMING_EVENTS: Event[] = [
+  {
+    id: "event_1",
+    title: "MSA National Level Cricket Selections",
+    date: "July 12, 2026",
+    time: "8:00 AM - 4:00 PM",
+    location: "Malwa Turf Complex, Sanwer Road, Indore",
+    sport: "Cricket",
+    description: "Open selection trials for our highly acclaimed residency cricket programs. Fully sponsored scholarships available for top 3 selected talents.",
+    registrationOpen: true
+  },
+  {
+    id: "event_2",
+    title: "Malwa Youth Elite Cup (Football U-16)",
+    date: "July 24-28, 2026",
+    time: "3:00 PM - 9:00 PM",
+    location: "FIFA Turf Ground, MSA Campus",
+    sport: "Football",
+    description: "A premium inter-state tournament bringing top clubs and academy scouts from across Central India.",
+    registrationOpen: true
+  },
+  {
+    id: "event_3",
+    title: "Olympic Hopefuls Shooting Exhibition",
+    date: "August 10, 2026",
+    time: "10:00 AM - 2:00 PM",
+    location: "Electronic Shooting Arena, Indore",
+    sport: "Rifle Shooting",
+    description: "A showcasing tournament evaluated by ISSF international judges. Open invitation for regional shooters.",
+    registrationOpen: false
+  }
+];
+
+export const ACHIEVEMENTS: Achievement[] = [
+  {
+    id: "ach_1",
+    title: "Central India Football Champions",
+    sport: "Football",
+    year: "2025",
+    athleteName: "MSA Under-17 Boys Team",
+    medal: "Championship",
+    description: "Defeated Indore FC 4-1 in the final match to secure the regional gold cup title."
+  },
+  {
+    id: "ach_2",
+    title: "Gold Medal - 10m Air Rifle Nationals",
+    sport: "Rifle Shooting",
+    year: "2024",
+    athleteName: "Kriti Chandak",
+    medal: "Gold",
+    description: "Scored a record 631.2 points in the youth finals to secure the national title."
+  },
+  {
+    id: "ach_3",
+    title: "MP State Inter-Academy Cup Champions",
+    sport: "Cricket",
+    year: "2025",
+    athleteName: "MSA Elite Squad",
+    medal: "Championship",
+    description: "Clean sweep in the entire tournament, finishing unbeaten over 12 fixtures."
+  }
+];
+
+export const TESTIMONIALS = [
+  {
+    quote: "The coaching at MSA has transformed my son's bowling action and mental resilience. They use elite video analytics that we didn't find anywhere else in MP.",
+    author: "Sanjay Malviya",
+    relation: "Father of Arjun Malviya (Cricket State Athlete)",
+    rating: 5
+  },
+  {
+    quote: "MSA is more than just an academy; it's a launchpad for professional careers. The facilities are on par with national stadiums, and Coach Rajendra's shooting program is world-class.",
+    author: "Kriti Chandak",
+    relation: "Elite Athlete, National Gold Medalist",
+    rating: 5
+  },
+  {
+    quote: "The combination of tactical coaches and a modern sports gym helps our daughter remain injury-free while expanding her vertical jump. Highly recommended!",
+    author: "Gurvinder Gill",
+    relation: "Father of Simran Gill (Basketball Captain)",
+    rating: 5
+  }
+];
+
+export const FACILITIES = [
+  {
+    title: "FIFA-Standard Turf Pitch",
+    description: "Lush synthetic football turf with professional LED floodlights for nighttime technical matches and GPS athlete tracking support.",
+    image: footballBg
+  },
+  {
+    title: "Electronic Shooting Arena",
+    description: "Equipped with world-class Sius Ascor target scoreboards and SCATT laser biomechanical alignment tools.",
+    image: facilityShooting
+  },
+  {
+    title: "Maplewood Indoor Basketball Court",
+    description: "FIBA-certified shock-absorbent maple wood floor configured with professional glass backboards and automatic shot counters.",
+    image: basketballBg
+  },
+  {
+    title: "Olympic-Sized Training Pool",
+    description: "10-lane regulated temperature pool with professional anti-wave lane boundaries and integrated high-speed underwater video feedback rigs.",
+    image: facilitySwimming
+  },
+  {
+    title: "Apex Sports Performance Gym",
+    description: "Advanced strength conditioning machines, Olympic lifting pads, physical therapy rooms, and computerized body fat trackers.",
+    image: facilityGym
   }
 ];
