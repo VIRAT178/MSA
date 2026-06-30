@@ -13,7 +13,7 @@ import {
   sendWelcomeEmail,
   sendPasswordResetEmail,
   sendEmail
-} from "./server/mailer";
+} from "./server/mailer.ts";
 
 // Helper for password hashing
 function hashPassword(pwd: string) {
