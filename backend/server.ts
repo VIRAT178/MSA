@@ -1,11 +1,7 @@
 import express from "express";
 import path from "path";
 import dotenv from "dotenv";
-<<<<<<< HEAD
-import  cors from "cors";
-=======
 import cors from "cors";
->>>>>>> e62cc317c3c021c18c5ac9435a6bea252d625e5a
 import fs from "fs";
 import crypto from "crypto";
 import { GoogleGenAI } from "@google/genai";
