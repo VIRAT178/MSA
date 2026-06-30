@@ -3,6 +3,7 @@ import { Menu, X, Trophy, Shield, Calendar, Sparkles, LogIn, ChevronDown, MapPin
 import Logo from "./Logo";
 import { SPORTS_PROGRAMS } from "../data";
 import { getSportIcon } from "../types";
+import athleteCricket from "../assets/images/athlete_cricket.png";
 
 interface NavbarProps {
   currentView: string;

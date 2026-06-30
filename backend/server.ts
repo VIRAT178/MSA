@@ -1,12 +1,16 @@
 import express from "express";
 import path from "path";
 import dotenv from "dotenv";
+<<<<<<< HEAD
 import  cors from "cors";
+=======
+import cors from "cors";
+>>>>>>> e62cc317c3c021c18c5ac9435a6bea252d625e5a
 import fs from "fs";
 import crypto from "crypto";
 import { GoogleGenAI } from "@google/genai";
 import mongoose from "mongoose";
-import { connectToDatabase, Admission, Contact, EventRegistration, User, inMemoryDb } from "./server/db";
+import { connectToDatabase, Admission, Contact, EventRegistration, User, inMemoryDb } from "./server/db.ts";
 import { 
   sendAdmissionConfirmationEmail, 
   sendContactInquiryEmail, 
@@ -14,7 +18,7 @@ import {
   sendWelcomeEmail,
   sendPasswordResetEmail,
   sendEmail
-} from "./server/mailer";
+} from "./server/mailer.ts";
 
 // Helper for password hashing
 function hashPassword(pwd: string) {
@@ -114,6 +118,12 @@ const app = express();
 const PORT = 3000;
 app.use(cors({
   origin: "https://malwasportsacademy.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
+app.use(cors({
+  origin: "https://malwasportsacademy.vercel.app", 
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
