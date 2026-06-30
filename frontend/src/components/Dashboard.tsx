@@ -5,6 +5,7 @@ import {
   CheckCircle, XCircle, RefreshCw, Mail, Phone, Edit3, Save, Shield
 } from "lucide-react";
 import { SPORTS_PROGRAMS, COACHES, FEATURED_ATHLETES } from "../data";
+import { apiPath } from "../utils/api";
 
 interface DashboardProps {
   initialRole: "admin" | "coach" | "student" | "parent";
