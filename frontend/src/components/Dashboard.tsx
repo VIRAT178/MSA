@@ -15,6 +15,9 @@ interface DashboardProps {
 export default function Dashboard({ initialRole, currentUser, onProfileUpdate }: DashboardProps) {
   const [activeRole, setActiveRole] = useState<"admin" | "coach" | "student" | "parent">(initialRole);
 
+  // Only allow the authenticated user's actual role in the dashboard view
+  const accessibleRoles = [initialRole] as const;
+
   // Sync role state with login role when user logs in/changes role
   useEffect(() => {
     setActiveRole(initialRole);
@@ -238,7 +241,7 @@ export default function Dashboard({ initialRole, currentUser, onProfileUpdate }:
 
           {/* Dynamic Switcher */}
           <div className="flex bg-zinc-100 p-1.5 rounded-xl border border-zinc-200 gap-1 self-start shadow-sm">
-            {(["admin", "coach", "student", "parent"] as const).map((role) => (
+            {accessibleRoles.map((role) => (
               <button
                 key={role}
                 onClick={() => {
