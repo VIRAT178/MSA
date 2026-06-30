@@ -5,7 +5,7 @@ import fs from "fs";
 import crypto from "crypto";
 import { GoogleGenAI } from "@google/genai";
 import mongoose from "mongoose";
-import { connectToDatabase, Admission, Contact, EventRegistration, User, inMemoryDb } from "./server/db";
+import { connectToDatabase, Admission, Contact, EventRegistration, User, inMemoryDb } from "./server/db.js";
 import { 
   sendAdmissionConfirmationEmail, 
   sendContactInquiryEmail, 
